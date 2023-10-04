@@ -1,7 +1,7 @@
 // document.addEventListener('DOMContentLoaded', () => {
 
-  document.getElementById('getData').addEventListener('click', async () => {
-    console.log('click');
+  // document.getElementById('getData').addEventListener('click', async () => {
+    console.log('Getting data from Cloudflare D1...');
     // Define the URL of your Cloudflare function
     const url = 'https://give-schools.pages.dev/getData';
 
@@ -28,5 +28,5 @@
         console.error('There has been a problem with your fetch operation:', error);
       });
 
-  });
+  // });
 // });
