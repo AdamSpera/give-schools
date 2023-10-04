@@ -132,7 +132,7 @@ form.classList.add('was-validated');
 
 document.getElementById('getData').addEventListener('click', async () => {
   // Define the URL of your Cloudflare function
-  const url = 'https://give-schools.pages.dev/onRequest';
+  const url = 'https://give-schools.pages.dev/getData';
 
   // Send a GET request to the function
   fetch(url, {
