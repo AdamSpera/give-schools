@@ -1020,9 +1020,11 @@ th span {
 tr:nth-child(even) {
   background-color: #f2f2f281;
 }
+
 tr:nth-child(odd) {
   background-color: #bccbcf81;
 }
+
 .table-striped tbody tr:nth-of-type(2n+1) {
   background-color: #f2f2f229;
 }
@@ -1071,7 +1073,8 @@ tr:nth-child(odd) {
 
 .text-section {
   flex: 1;
-  padding-right: 20px; /* Optional: Adds some space between the text and the info section */
+  padding-right: 20px;
+  /* Optional: Adds some space between the text and the info section */
 }
 
 .info-section {
@@ -1082,11 +1085,12 @@ tr:nth-child(odd) {
 /* Responsive styling for mobile or smaller screens */
 @media (max-width: 768px) {
   .content-wrapper {
-      flex-direction: column;
+    flex-direction: column;
   }
+
   .text-section,
   .info-section {
-      text-align: left;
-      padding: 0;
+    text-align: left;
+    padding: 0;
   }
 }
