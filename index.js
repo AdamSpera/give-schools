@@ -128,9 +128,14 @@ var forms = document.getElementsByClassName('needs-validation');
 form.classList.add('was-validated');
 
 
+
+
 // NEW GET CONTENT
+// ADD On page load 
+document.addEventListener('DOMContentLoaded', () => {
 
 document.getElementById('getData').addEventListener('click', async () => {
+  console.log('click');
   // Define the URL of your Cloudflare function
   const url = 'https://give-schools.pages.dev/getData';
 
@@ -157,4 +162,5 @@ document.getElementById('getData').addEventListener('click', async () => {
       console.error('There has been a problem with your fetch operation:', error);
     });
 
+});
 });
