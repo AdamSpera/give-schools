@@ -1043,3 +1043,50 @@ tr:nth-child(odd) {
 .step {
   padding: 10px;
 }
+
+.item-section {
+  padding-top: 1rem;
+}
+
+.ask-card {
+  background-color: #ffffff;
+  padding: 40px;
+  margin-top: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  overflow: hidden;
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.ask-card:hover {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.content-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.text-section {
+  flex: 1;
+  padding-right: 20px; /* Optional: Adds some space between the text and the info section */
+}
+
+.info-section {
+  flex: 1;
+  text-align: right;
+}
+
+/* Responsive styling for mobile or smaller screens */
+@media (max-width: 768px) {
+  .content-wrapper {
+      flex-direction: column;
+  }
+  .text-section,
+  .info-section {
+      text-align: left;
+      padding: 0;
+  }
+}
