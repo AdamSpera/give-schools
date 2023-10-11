@@ -1,32 +1,54 @@
-// document.addEventListener('DOMContentLoaded', () => {
+// Function to get data from the server
+function getData() {
+  const url = 'https://give-schools.pages.dev/getData';
 
-  // document.getElementById('getData').addEventListener('click', async () => {
-    console.log('Getting data from Cloudflare D1...');
-    // Define the URL of your Cloudflare function
-    const url = 'https://give-schools.pages.dev/getData';
-
-    // Send a GET request to the function
-    fetch(url, {
-      method: 'GET',
-      headers: {
-        'Accept': 'application/json',
-      },
+  return fetch(url, {
+    method: 'GET',
+    headers: {
+      'Accept': 'application/json',
+    },
+  })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
     })
-      .then(response => {
-        // Check if the request was successful
-        if (!response.ok) {
-          throw new Error('Network response was not ok ' + response.statusText);
-        }
-        return response.json();
-      })
-      .then(data => {
-        // Do something with the data
-        console.log(data);
-      })
-      .catch(error => {
-        // Handle errors, like network issues or invalid JSON
-        console.error('There has been a problem with your fetch operation:', error);
-      });
+    .catch(error => {
+      console.error('Error getting data:', error);
+      throw error;
+    });
+}
 
-  // });
-// });
+// Function to get schools from the server
+function getSchools() {
+  const url = 'https://give-schools.pages.dev/getSchools';
+
+  return fetch(url, {
+    method: 'GET',
+    headers: {
+      'Accept': 'application/json',
+    },
+  })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
+    })
+    .catch(error => {
+      console.error('Error getting schools:', error);
+      throw error;
+    });
+}
+
+// Log a message and call the functions to get data and schools
+console.log('Getting data from Cloudflare D1...');
+Promise.all([getData(), getSchools()])
+  .then(([data, schools]) => {
+    console.log('Data:', data);
+    console.log('Schools:', schools);
+  })
+  .catch(error => {
+    console.error('Error:', error);
+  });
