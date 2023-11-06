@@ -3,7 +3,11 @@ $(document).ready(function () {
   console.log('Getting data from Cloudflare D1...');
 
   Promise.all([getData(), getSchools()])
-    .then(([eventData, schoolData]) => {
+    .then(([data, schools]) => {
+      var eventData = [];
+      var schoolData = [];
+      eventData = data;
+      schoolData = schools;
       console.log('Data:', eventData);
       console.log('Schools:', schoolData);
 
