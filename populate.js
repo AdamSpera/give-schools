@@ -1,68 +1,70 @@
 
-console.log('Getting data from Cloudflare D1...');
+$(document).ready(function() {
+  console.log('Getting data from Cloudflare D1...');
 
-var schoolData = []
-var eventData = []
+  var schoolData = []
+  var eventData = []
 
-Promise.all([getData(), getSchools()])
-  .then(([data, schools]) => {
-    console.log('Data:', data);
-    eventData = data.results;
-    console.log('Schools:', schools);
-    schoolData = schools.results;
-  })
-  .catch(error => {
-    console.error('Error:', error);
-  });
+  Promise.all([getData(), getSchools()])
+    .then(([data, schools]) => {
+      console.log('Data:', data);
+      eventData = data.results;
+      console.log('Schools:', schools);
+      schoolData = schools.results;
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
 
-// For every school entry
-$.each(schoolData, function (index, item) {
+  // For every school entry
+  $.each(schoolData, function (index, item) {
 
-  var html = `
-  <article class="docs-article" id="${item.school}" name="${item.school}">
-    <header class="docs-header">
-      <h1 class="docs-heading">${item.school}</h1>
-      <section class="docs-intro">
-        <p>${item.description}</p>
-      </section>
-    </header>`;
+    var html = `
+    <article class="docs-article" id="${item.school}" name="${item.school}">
+      <header class="docs-header">
+        <h1 class="docs-heading">${item.school}</h1>
+        <section class="docs-intro">
+          <p>${item.description}</p>
+        </section>
+      </header>`;
 
-  $.each(eventData, function (index, subitem) {
+    $.each(eventData, function (index, subitem) {
 
-    if (subitem.school == item.school) {
+      if (subitem.school == item.school) {
 
-      var subhtml = `
-      <div class="ask-card" id="${subitem.school}-${index}">
-        <div class="content-wrapper">
-          <div class="text-section">
-            <h2 class="section-heading">${subitem.content_title}</h2>
-            <p>${subitem.content_description}</p>
+        var subhtml = `
+        <div class="ask-card" id="${subitem.school}-${index}">
+          <div class="content-wrapper">
+            <div class="text-section">
+              <h2 class="section-heading">${subitem.content_title}</h2>
+              <p>${subitem.content_description}</p>
+            </div>
+            <div class="info-section">
+              <h4>Donation Event</h4>
+              <div class="info">
+                <strong>Date: </strong> ${subitem.event_date}
+              </div>
+              <div class="info">
+                <strong>Time: </strong> ${subitem.event_time}
+              </div>
+              <div class="info">
+                <strong>Place: </strong> ${subitem.event_location}
+              </div>
+            </div>
           </div>
-          <div class="info-section">
-            <h4>Donation Event</h4>
-            <div class="info">
-              <strong>Date: </strong> ${subitem.event_date}
-            </div>
-            <div class="info">
-              <strong>Time: </strong> ${subitem.event_time}
-            </div>
-            <div class="info">
-              <strong>Place: </strong> ${subitem.event_location}
-            </div>
-          </div>
-        </div>
-      </div>`;
+        </div>`;
 
-      html += subhtml;
+        html += subhtml;
 
-    }
+      }
+
+    });
+
+    html += `</article>`;
+
+    $('#populateDom').append(html);
 
   });
-
-  html += `</article>`;
-
-  $('#populateDom').append(html);
-
 });
 
 var newElement = `<article class="docs-article" id="section-2" name="Our Lady Of Mercy Regional Catholic School">

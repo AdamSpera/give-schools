@@ -43,12 +43,12 @@ function getSchools() {
 }
 
 // Log a message and call the functions to get data and schools
-console.log('Getting data from Cloudflare D1...');
-Promise.all([getData(), getSchools()])
-  .then(([data, schools]) => {
-    console.log('Data:', data);
-    console.log('Schools:', schools);
-  })
-  .catch(error => {
-    console.error('Error:', error);
-  });
+// console.log('Getting data from Cloudflare D1...');
+// Promise.all([getData(), getSchools()])
+//   .then(([data, schools]) => {
+//     console.log('Data:', data);
+//     console.log('Schools:', schools);
+//   })
+//   .catch(error => {
+//     console.error('Error:', error);
+//   });
