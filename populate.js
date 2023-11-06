@@ -6,8 +6,8 @@ $(document).ready(function () {
     .then(([data, schools]) => {
       var eventData = [];
       var schoolData = [];
-      eventData = data;
-      schoolData = schools;
+      eventData = data.results;
+      schoolData = schools.results;
       console.log('Data:', eventData);
       console.log('Schools:', schoolData);
 
