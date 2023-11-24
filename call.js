@@ -1,6 +1,6 @@
 // Function to get data from the server
 function getData() {
-  const url = 'https://give-schools.pages.dev/getData';
+  const url = `${window.location.href}/getData`;
 
   return fetch(url, {
     method: 'GET',
@@ -22,7 +22,7 @@ function getData() {
 
 // Function to get schools from the server
 function getSchools() {
-  const url = 'https://give-schools.pages.dev/getSchools';
+  const url = `${window.location.href}/getSchools`;
 
   return fetch(url, {
     method: 'GET',
@@ -41,14 +41,3 @@ function getSchools() {
       throw error;
     });
 }
-
-// Log a message and call the functions to get data and schools
-// console.log('Getting data from Cloudflare D1...');
-// Promise.all([getData(), getSchools()])
-//   .then(([data, schools]) => {
-//     console.log('Data:', data);
-//     console.log('Schools:', schools);
-//   })
-//   .catch(error => {
-//     console.error('Error:', error);
-//   });
