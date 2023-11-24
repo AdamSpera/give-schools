@@ -1,6 +1,6 @@
 // Function to get data from the server
 function getData() {
-  const url = `${window.location.href}/getData`;
+  const url = `${window.location.href}getData`;
 
   return fetch(url, {
     method: 'GET',
@@ -22,7 +22,7 @@ function getData() {
 
 // Function to get schools from the server
 function getSchools() {
-  const url = `${window.location.href}/getSchools`;
+  const url = `${window.location.href}getSchools`;
 
   return fetch(url, {
     method: 'GET',
